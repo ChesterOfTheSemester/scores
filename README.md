@@ -17,11 +17,11 @@ Parameters: order, orderBy (direction), filter
 
 # DB dump
 
-INSERT INTO `scores` (`id`, `name`, `difficulty`, `score`, `verified`) VALUES
-	(1, 'user1', 1, 5, 1),
-	(2, 'user2', 2, 1, 1),
-	(3, 'user3', 99, 100, 1);
-  
-INSERT INTO `admins` (`id`, `username`, `password`) VALUES
-	(1, 'chester', 'test'),
-	(2, 'admin', 'admin');
+    INSERT INTO `scores` (`id`, `name`, `difficulty`, `score`, `verified`) VALUES
+    	(1, 'user1', 1, 5, 1),
+    	(2, 'user2', 2, 1, 1),
+    	(3, 'user3', 99, 100, 1);
+      
+    INSERT INTO `admins` (`id`, `username`, `password`) VALUES
+    	(1, 'chester', 'test'),
+    	(2, 'admin', 'admin');
