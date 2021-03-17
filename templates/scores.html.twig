@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}HighScores{% endblock %}</title>
+
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+        <script src="/js/bootstrap/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <img class="logo" src="/img/logo.png"/>
+
+        <div class="scores">
+            <form class="name-search input-group mb-3" method="get">
+                <input type="text" class="form-control" placeholder="Filter by name" name="filter" value="{{ params.filter }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </form>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col col_id">#</th>
+                    <th scope="col"><a href="{{ uri }}?{{ params|merge({'order': 'name', 'orderBy': (params.orderBy=='DESC'?'ASC':'DESC')})|url_encode }}">Name</a></th>
+                    <th scope="col"><a href="{{ uri }}?{{ params|merge({'order': 'difficulty', 'orderBy': (params.orderBy=='DESC'?'ASC':'DESC')})|url_encode }}">Difficulty</a></th>
+                    <th scope="col"><a href="{{ uri }}?{{ params|merge({'order': 'score', 'orderBy': (params.orderBy=='DESC'?'ASC':'DESC')})|url_encode }}">Score</a></th>
+
+                    {% if logged_in %}
+                    <th scope="col"><a href="{{ uri }}?{{ params|merge({'order': 'verified', 'orderBy': (params.orderBy=='DESC'?'ASC':'DESC')})|url_encode }}">Verified</a></th>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                {% set x = 1 %}
+                {% for i in data %}
+                    <tr>
+                        <th scope="row">{{ x }}{% set x = x+1 %}</th>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.difficulty }}</td>
+                        <td>{{ i.score }}</td>
+                        {% if logged_in %}
+                        <td>
+                            {{ i.verified ? "TRUE" : "FALSE" }}
+                            {% if i.verified %}
+                            <a href="/scores?unverify={{ i.id }}">
+                                <button type="submit" class="btn btn-secondary">Un-verify</button>
+                            </a>
+                            {% else %}
+                            <a href="/scores?verify={{ i.id }}">
+                                <button type="submit" class="btn btn-secondary">Verify</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if logged_in %}
+            <a class="login" href="/logout">Logout</a>
+        {% else %}
+            <a class="login" href="/login">Login as admin</a>
+        {% endif %}
+
+        <link rel="stylesheet" href="/css/styles.css">
+        <script defer src="/js/script.js"></script>
+    </body>
+</html>

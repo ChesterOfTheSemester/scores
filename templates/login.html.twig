@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}HighScores{% endblock %}</title>
+
+
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+        <script src="/js/bootstrap/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <form class="form-signin" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputUname" class="sr-only">Username</label>
+            <input value="{{ params.inputUname }}" name="inputUname" type="text" id="inputUname" class="form-control" placeholder="Username" required autofocus>
+            <label for="inputPassword"class="sr-only">Password</label>
+            <input value="{{ params.inputPassword }}" name="inputPassword"  type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+        <link rel="stylesheet" href="/css/styles.css">
+    </body>
+</html>
