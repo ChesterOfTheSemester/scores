@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# scores
-=======
-
 # Scores
 
 Score list can be seen in @Route("/scores", name="scores")
@@ -28,4 +24,3 @@ Parameters: order, orderBy (direction), filter
     INSERT INTO `admins` (`id`, `username`, `password`) VALUES
     	(1, 'chester', 'test'),
     	(2, 'admin', 'admin');
->>>>>>> dacda5fcfb0370740eb6c9fa566ea78ecc5f2a15
