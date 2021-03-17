@@ -1,11 +1,18 @@
-# scores
+
+# Scores
 
 Score list can be seen in @Route("/scores", name="scores")
+
 Submitting new scores is possible in @Route("/api/submitScore/{name}/{difficulty}/{score}", name="submitScore")
+
 Logging in as admin is possible in @Route("/login", name="login")
+
 Logging out is possible in @Route("/logout", name="logout")
 
+# API
+
 There's a small API endpoint for getting scores in @Route("/api/getScores", name="getScores")
+
 Parameters: order, orderBy (direction), filter
 
 # DB dump
